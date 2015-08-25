@@ -1,0 +1,11 @@
+ $('.replaceContentNav a').on('click', function (e) {
+        var thisContentContainer = $(this).parents('article').find('.content');
+        e.preventDefault();
+        var url = this.href;
+        $(this).parents('.replaceContentNav').find('a.current').removeClass('current');
+        $(this).addClass('current');
+
+        var detachedInfo= $(this).parent('article').find('.container').detach();
+        thisContentContainer.load(url + ' .content').hide().fadeIn(1000);
+        
+    });
